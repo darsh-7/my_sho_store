@@ -8,15 +8,15 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.findNavController
-import com.example.android.navigation.databinding.FragmentGameOverBinding
+import com.example.android.navigation.databinding.FragmentInstructionBinding
 
-class GameOverFragment : Fragment() {
+class InstructionFragment : Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
-        val binding: FragmentGameOverBinding = DataBindingUtil.inflate(
-                inflater, R.layout.fragment_game_over, container, false)
+        val binding: FragmentInstructionBinding = DataBindingUtil.inflate(
+                inflater, R.layout.fragment_instruction, container, false)
         binding.next.setOnClickListener { view: View ->
-            view.findNavController().navigate(GameOverFragmentDirections.actionGameOverFragmentToAboutFragment())
+            view.findNavController().navigate(InstructionFragmentDirections.actionInstructionFragmentToListFragment())
         }
         return binding.root
     }

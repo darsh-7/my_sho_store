@@ -9,56 +9,51 @@
         android:id="@+id/loginFragment"
         android:name="com.example.android.navigation.LoginFragmint"
         android:label="@string/top_label"
-        tools:layout="@layout/fragment_title">
+        tools:layout="@layout/fragment_login">
         <action
-            android:id="@+id/action_loginFragment_to_gameFragment"
-            app:destination="@id/gameFragment"
+            android:id="@+id/action_loginFragment_to_welcomeFragment"
+            app:destination="@id/welcomeFragment"
             app:popUpTo="@+id/loginFragment"
             app:popUpToInclusive="true"
             app:launchSingleTop="true" />
     </fragment>
     <fragment
-        android:id="@+id/gameFragment"
-        android:name="com.example.android.navigation.GameFragment"
+        android:id="@+id/welcomeFragment"
+        android:name="com.example.android.navigation.WelcomeFragment"
         android:label="@string/top_label"
-        tools:layout="@layout/fragment_game">
+        tools:layout="@layout/fragment_welcome">
         <action
-            android:id="@+id/action_gameFragment_to_gameOverFragment"
-            app:destination="@id/gameOverFragment"
+            android:id="@+id/action_welcomeFragment_to_instructionFragment"
+            app:destination="@id/instructionFragment"
              />
     </fragment>
     <fragment
-        android:id="@+id/gameWonFragment"
-        android:name="com.example.android.navigation.GameWonFragment"
+        android:id="@+id/addFragment"
+        android:name="com.example.android.navigation.AddFragment"
         android:label="@string/top_label"
-        tools:layout="@layout/fragment_game_won">
+        tools:layout="@layout/fragment_add">
         <action
             android:id="@+id/action_gameWonFragment_to_gameFragment"
-            app:destination="@id/aboutFragment"
+            app:destination="@id/listFragment"
             app:popUpTo="@+id/loginFragment"/>
     </fragment>
     <fragment
-        android:id="@+id/gameOverFragment"
-        android:name="com.example.android.navigation.GameOverFragment"
+        android:id="@+id/instructionFragment"
+        android:name="com.example.android.navigation.InstructionFragment"
         android:label="@string/top_label"
-        tools:layout="@layout/fragment_game_over">
+        tools:layout="@layout/fragment_instruction">
         <action
-            android:id="@+id/action_gameOverFragment_to_aboutFragment"
-            app:destination="@id/aboutFragment" />
+            android:id="@+id/action_instructionFragment_to_listFragment"
+            app:destination="@id/listFragment" />
     </fragment>
     <fragment
-        android:id="@+id/rulesFragment"
-        android:name="com.example.android.navigation.RulesFragment"
+        android:id="@+id/listFragment"
+        android:name="com.example.android.navigation.ListFragment"
         android:label="@string/top_label"
-        tools:layout="@layout/fragment_rules" />
-    <fragment
-        android:id="@+id/aboutFragment"
-        android:name="com.example.android.navigation.AboutFragment"
-        android:label="@string/top_label"
-        tools:layout="@layout/fragment_about" >
+        tools:layout="@layout/fragment_list" >
+        <action
+            android:id="@+id/action_listFragment_to_addFragment"
+            app:destination="@id/addFragment" />
+    </fragment>
 
-        <action
-            android:id="@+id/action_aboutFragment_to_gameWonFragment"
-            app:destination="@id/gameWonFragment" />
-    </fragment>
 </navigation>
