@@ -54,6 +54,19 @@
         <action
             android:id="@+id/action_listFragment_to_addFragment"
             app:destination="@id/addFragment" />
+        <argument
+            android:name="name"
+            app:argType="string" />
+        <argument android:name="company"
+            app:argType="string" />
+        <argument android:name="size"
+            app:argType="string" />
+        <argument
+            android:name="description"
+            app:argType="string" />
+        <argument
+            android:name="valed"
+            app:argType="boolean" />
     </fragment>
 
 </navigation>
