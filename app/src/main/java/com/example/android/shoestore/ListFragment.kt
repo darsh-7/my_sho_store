@@ -1,4 +1,4 @@
-package com.example.android.navigation
+package com.example.android.shoestore
 
 import android.os.Bundle
 import android.util.Log
@@ -10,7 +10,7 @@ import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Observer
 import androidx.navigation.findNavController
 import androidx.navigation.ui.NavigationUI
-import com.example.android.navigation.databinding.FragmentListBinding
+import com.example.android.shoestore.databinding.FragmentListBinding
 import kotlinx.android.synthetic.main.new_field.view.*
 
 class ListFragment : Fragment() {

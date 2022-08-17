@@ -1,4 +1,4 @@
-package com.example.android.navigation
+package com.example.android.shoestore
 
 import androidx.databinding.DataBindingUtil
 import android.os.Bundle
@@ -10,7 +10,7 @@ import androidx.navigation.NavDestination
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.NavigationUI
-import com.example.android.navigation.databinding.ActivityMainBinding
+import com.example.android.shoestore.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
     private lateinit var drawerLayout: DrawerLayout

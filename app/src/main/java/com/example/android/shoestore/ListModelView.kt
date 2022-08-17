@@ -1,11 +1,8 @@
-package com.example.android.navigation
+package com.example.android.shoestore
 
 import android.util.Log
-import androidx.databinding.DataBindingUtil
-import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.example.android.navigation.databinding.FragmentListBinding
 
 class ListModelView : ViewModel() {
     var newSho = MutableLiveData<MutableList<String>>()

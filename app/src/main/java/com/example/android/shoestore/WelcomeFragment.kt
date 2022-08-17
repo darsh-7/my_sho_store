@@ -1,4 +1,4 @@
-package com.example.android.navigation
+package com.example.android.shoestore
 
 import androidx.databinding.DataBindingUtil
 import android.os.Bundle
@@ -7,7 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.findNavController
-import com.example.android.navigation.databinding.FragmentWelcomeBinding
+import com.example.android.shoestore.databinding.FragmentWelcomeBinding
 
 class WelcomeFragment : Fragment() {
     override fun onCreateView(
