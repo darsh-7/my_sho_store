@@ -36,6 +36,7 @@
             android:id="@+id/action_gameWonFragment_to_gameFragment"
             app:destination="@id/listFragment"
             app:popUpTo="@+id/loginFragment"/>
+
     </fragment>
     <fragment
         android:id="@+id/instructionFragment"

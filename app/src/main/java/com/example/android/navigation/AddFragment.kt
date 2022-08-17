@@ -7,6 +7,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
 import com.example.android.navigation.databinding.FragmentAddBinding
 
@@ -28,9 +29,12 @@ class AddFragment : Fragment() {
         var company: String = binding.company.text.toString()
         var size: String = binding.size.text.toString()
         var description: String = binding.description.text.toString()
-        val shoo = arrayOf(name,company,size,description)
+        //val shoo = arrayOf(name,company,size,description)
+
+
+
         binding.save.setOnClickListener { view: View ->
-            view.findNavController().navigate(AddFragmentDirections.actionGameWonFragmentToGameFragment(binding.name.text.toString(), binding.company.text.toString(),binding.size.text.toString(),binding.description.text.toString(),true ))
+            view.findNavController().navigate(AddFragmentDirections.actionGameWonFragmentToGameFragment(binding.name.text.toString(),company,binding.company.text.toString(),description,true ))
             Log.i("nav to list", binding.name.text.toString() + size + description)
         }
 

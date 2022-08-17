@@ -1,10 +1,12 @@
 package com.example.android.navigation
 
+import android.content.Context
 import android.os.Bundle
 import android.util.Log
 import android.view.*
 import android.widget.LinearLayout
 import android.widget.TextView
+import androidx.core.content.ContextCompat.getSystemService
 import androidx.fragment.app.Fragment
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
@@ -17,67 +19,69 @@ import kotlinx.android.synthetic.main.new_field.view.*
 
 
 class ListFragment : Fragment() {
-
     private lateinit var viewModel: ListModelView
     lateinit var vText: TextView
     private val binding2 by lazy {
         FragmentListBinding.inflate(layoutInflater)
     }
-
+    private var parentLinearLayout: LinearLayout? = null
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
 
+        viewModel = ViewModelProvider(this).get(ListModelView::class.java)
+
         val binding: FragmentListBinding = DataBindingUtil.inflate(
             inflater, R.layout.fragment_list, container, false
         )
-
 
         binding.newList.setOnClickListener { view: View ->
             view.findNavController()
                 .navigate(ListFragmentDirections.actionListFragmentToAddFragment())
         }
 
-        var linerlayout: LinearLayout = binding.listLayout
 
         val p = LinearLayout.LayoutParams(
             LinearLayout.LayoutParams.MATCH_PARENT,
             LinearLayout.LayoutParams.WRAP_CONTENT
         )
 
+        val args = ListFragmentArgs.fromBundle(arguments!!)
 
 
 
-
-
-        viewModel = ViewModelProvider(this).get(ListModelView::class.java)
 
         //binding.textView.text = viewModel.newSho.value
 
 
-        binding.button.setOnClickListener {
-            viewModel.newSho.value = "Add new list"
-        }
-
-        viewModel.newSho.observe(viewLifecycleOwner, Observer {
-            Log.i("model read", "sho changed " + viewModel.newSho)
-            //binding.textView.text= it
-            val view = layoutInflater.inflate(R.layout.new_field, null)
-            viewModel.newShoSave.value = view.textView.text.toString() + "\n" + it
-            view.textView.text = viewModel.newShoSave.value
-
-            binding.listLayout.addView(view.textView)
-
-        })
-
-        val args = ListFragmentArgs.fromBundle(arguments!!)
+//        binding.button.setOnClickListener {
+//            viewModel.newSho.value = "Add new list"
+//        }
         if (args.valed) {
-            Log.i("arg true", "sho changed name: " + args.name)
+            Log.i("arg true", "sho changed name:" )
             var sho: String =
-                "name :" + args.name + "\nc" + args.company + "\ns" + args.size + "\nd" + args.description
-            viewModel.newSho.value = sho
+                "name :" + args.name + "\ncompany :" + args.company + "\nsize :" + args.size + "\ndescription :" + args.description
+
+            viewModel.newSho.value= listOf<String>(sho)
+
+            viewModel.newSho.observe(viewLifecycleOwner, Observer {
+                Log.i("model read", "sho changed " + viewModel.newSho)
+                val view = layoutInflater.inflate(R.layout.new_field, null)
+                for (text in it) {
+                    view.textView.text = text
+                    binding.listLayout.addView(view.textView)
+                }
+
+            })
         }
+//        if (args.valed) {
+//            Log.i("arg true", "sho changed name:" )
+//            var sho: String =
+//                "name :" + args.name + "\ncompany :" + args.company + "\nsize :" + args.size + "\ndescription :" + args.description
+//
+//            viewModel.newSho.value= listOf<String>(sho)
+//        }
 
 
 
@@ -95,6 +99,11 @@ class ListFragment : Fragment() {
                 || super.onOptionsItemSelected(item)
     }
 
+    fun onAddField(view: View) {
+//        val inflater = getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
+//        val rowView: View = inflater.inflate(R.layout.new_field, null)
+//        parentLinearLayout!!.addView(rowView, parentLinearLayout!!.childCount - 1)
+    }
     private fun addShoe(shoeName: String) {
         val view = layoutInflater.inflate(R.layout.new_field, null)
         view.textView.text = shoeName

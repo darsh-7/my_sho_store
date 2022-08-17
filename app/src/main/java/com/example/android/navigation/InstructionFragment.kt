@@ -15,6 +15,8 @@ class InstructionFragment : Fragment() {
                               savedInstanceState: Bundle?): View? {
         val binding: FragmentInstructionBinding = DataBindingUtil.inflate(
                 inflater, R.layout.fragment_instruction, container, false)
+
+
         binding.next.setOnClickListener { view: View ->
             view.findNavController().navigate(InstructionFragmentDirections.actionInstructionFragmentToListFragment("","","","",false))
         }
