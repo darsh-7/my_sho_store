@@ -20,7 +20,6 @@ import kotlinx.android.synthetic.main.new_field.view.*
 
 class ListFragment : Fragment() {
     private lateinit var viewModel: ListModelView
-    lateinit var vText: TextView
     private val binding2 by lazy {
         FragmentListBinding.inflate(layoutInflater)
     }
@@ -30,13 +29,16 @@ class ListFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
 
-        viewModel = ViewModelProvider(this).get(ListModelView::class.java)
+        Log.i("list frag", "called ModelProvider " )
+        val viewModel = ViewModelProvider(this).get(ListModelView::class.java)
+
 
         val binding: FragmentListBinding = DataBindingUtil.inflate(
             inflater, R.layout.fragment_list, container, false
         )
 
         binding.newList.setOnClickListener { view: View ->
+            Log.i("list frag", "nave to addfrag" )
             view.findNavController()
                 .navigate(ListFragmentDirections.actionListFragmentToAddFragment())
         }
@@ -49,28 +51,16 @@ class ListFragment : Fragment() {
 
         val args = ListFragmentArgs.fromBundle(arguments!!)
 
-
-
-
-        //binding.textView.text = viewModel.newSho.value
-
-
-//        binding.button.setOnClickListener {
-//            viewModel.newSho.value = "Add new list"
-//        }
         if (args.valed) {
-            Log.i("arg true", "sho changed name:" )
             var sho: String =
                 "name :" + args.name + "\ncompany :" + args.company + "\nsize :" + args.size + "\ndescription :" + args.description
-
-            viewModel.newSho.value= listOf<String>(sho)
-
+            viewModel.newSho.value = listOf(sho)
             viewModel.newSho.observe(viewLifecycleOwner, Observer {
                 Log.i("model read", "sho changed " + viewModel.newSho)
                 val view = layoutInflater.inflate(R.layout.new_field, null)
                 for (text in it) {
-                    view.textView.text = text
-                    binding.listLayout.addView(view.textView)
+                    view.sho_list.text = text
+                    binding.listLayout.addView(view.sho_list)
                 }
 
             })
@@ -99,15 +89,10 @@ class ListFragment : Fragment() {
                 || super.onOptionsItemSelected(item)
     }
 
-    fun onAddField(view: View) {
-//        val inflater = getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
-//        val rowView: View = inflater.inflate(R.layout.new_field, null)
-//        parentLinearLayout!!.addView(rowView, parentLinearLayout!!.childCount - 1)
-    }
-    private fun addShoe(shoeName: String) {
+    private fun addShoe(text: String) {
         val view = layoutInflater.inflate(R.layout.new_field, null)
-        view.textView.text = shoeName
-        binding2.listLayout.addView(view.textView)
+        view.sho_list.text = text
+        binding2.listLayout.addView(view.sho_list)
     }
 
 

@@ -23,7 +23,8 @@ class AddFragment : Fragment() {
         val binding: FragmentAddBinding = DataBindingUtil.inflate(
             inflater, R.layout.fragment_add, container, false
         )
-
+//        Log.i("add frag", "called ModelProvider " )
+//        val model = ViewModelProvider(this).get(ListModelView::class.java)
 
         var name: String = binding.name.text.toString()
         var company: String = binding.company.text.toString()
@@ -34,9 +35,18 @@ class AddFragment : Fragment() {
 
 
         binding.save.setOnClickListener { view: View ->
-            view.findNavController().navigate(AddFragmentDirections.actionGameWonFragmentToGameFragment(binding.name.text.toString(),company,binding.company.text.toString(),description,true ))
+            Log.i("add frag", "nave to list frag" )
+            var sho: String =
+                "name :" + name + "\ncompany :" + company + "\nsize :" + size + "\ndescription :" + description
+
+//            model.newSho.value= listOf<String>(sho)
             Log.i("nav to list", binding.name.text.toString() + size + description)
+            view.findNavController().navigate(AddFragmentDirections.actionGameWonFragmentToGameFragment(binding.name.text.toString(),binding.company.text.toString(),binding.size.text.toString(),binding.description.text.toString(),true ))
         }
+//        binding.cancel.setOnClickListener { view: View ->
+//            Log.i("nav to list", binding.name.text.toString() + size + description)
+//            view.findNavController().navigate(AddFragmentDirections.actionGameWonFragmentToGameFragment(binding.name.text.toString(),binding.company.text.toString(),binding.size.text.toString(),binding.description.text.toString(),false ))
+//        }
 
 
         setHasOptionsMenu(true)

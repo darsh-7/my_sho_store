@@ -14,7 +14,7 @@ class ListModelView : ViewModel() {
 
 
     init {
-        Log.i("model", "model created")
+        Log.i("ListModelView", "model created")
         newSho.value= listOf<String>()
     }
 
@@ -33,7 +33,7 @@ class ListModelView : ViewModel() {
 
     override fun onCleared() {
         super.onCleared()
-        Log.i("model", "model destro")
+        Log.i("ListModelView", "model destroyed")
     }
 }
 
