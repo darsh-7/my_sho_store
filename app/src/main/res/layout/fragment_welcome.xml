@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 
+
+<!-- LinearLayout is used because the ui is simple -->
+
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -33,9 +36,19 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:text="Welcome onboarding screen"
+                    android:text="Welcome to my store"
+                    android:layout_margin="20sp"
 
                     android:textSize="25sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="press next"
+                    android:layout_margin="20sp"
+                    android:textSize="25sp" />
+
                 <Button
                     android:id="@+id/next"
                     style="@style/Widget.AppCompat.Button.Colored"

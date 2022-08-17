@@ -18,7 +18,7 @@ class InstructionFragment : Fragment() {
 
 
         binding.next.setOnClickListener { view: View ->
-            view.findNavController().navigate(InstructionFragmentDirections.actionInstructionFragmentToListFragment("","","","",false))
+            view.findNavController().navigate(InstructionFragmentDirections.actionInstructionFragmentToListFragment())
         }
         return binding.root
     }

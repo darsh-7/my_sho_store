@@ -8,14 +8,14 @@ import androidx.lifecycle.ViewModel
 import com.example.android.navigation.databinding.FragmentListBinding
 
 class ListModelView : ViewModel() {
-    val newSho = MutableLiveData<List<String>>()
+    var newSho = MutableLiveData<MutableList<String>>()
 //    val newSho: LiveData<List<String>>
 //        get() = _shoList
 
 
     init {
         Log.i("ListModelView", "model created")
-        newSho.value= listOf<String>()
+        newSho.value=mutableListOf()
     }
 
 

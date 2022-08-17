@@ -4,6 +4,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="com.example.android.navigation.LoginFragmint">
+    <!-- LinearLayout is used because the ui is simple -->
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -107,10 +108,11 @@
 
         </LinearLayout>
 
+        <!-- constraint is used because the ui is complex -->
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="wrap_content">
 
             <Button
                 android:id="@+id/save"

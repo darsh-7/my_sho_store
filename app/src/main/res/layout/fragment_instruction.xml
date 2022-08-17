@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="com.example.android.navigation.InstructionFragment">
 
+    <!-- LinearLayout is used because the ui is simple -->
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -28,9 +29,18 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
+                android:layout_margin="20sp"
                 android:text="Welcome info screen"
-
                 android:textSize="25sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="20sp"
+                android:text="press next to see the list"
+                android:textSize="25sp" />
+
             <Button
                 android:id="@+id/next"
                 style="@style/Widget.AppCompat.Button.Colored"
