@@ -6,8 +6,11 @@ import androidx.lifecycle.ViewModel
 
 class ListModelView : ViewModel() {
     var newSho = MutableLiveData<MutableList<String>>()
-//    val newSho: LiveData<List<String>>
-//        get() = _shoList
+
+    var name = ""
+    var size = ""
+    var company = ""
+    var description = ""
 
 
     init {
@@ -15,17 +18,23 @@ class ListModelView : ViewModel() {
         newSho.value=mutableListOf()
     }
 
+    fun reseList() {
+       newSho.value?.clear()
+    }
 
-//    fun saveNewData(n: String, c: String, s: String, d: String) :String {
-//        text = text + "\n" + "name" + n +
-//                "\nname" + c +
-//                "\nname" + s +
-//                "\nname" + d
-//
-//        _shoList.value = text
-//        Log.i("saveNewData", _shoList.value.toString())
-//        return _shoList.value.toString()
-//    }
+    fun reseShoe() {
+        name = ""
+        size = ""
+        company = ""
+        description = ""
+    }
+
+    fun saveNewData() {
+        var sho: String = "name :" + name + "\ncompany :" + company + "\nsize :" + size + "\ndescription :" +description
+
+        newSho.value!! += sho
+        Log.i("ListModelView","saveNewData"+ sho)
+    }
 
 
     override fun onCleared() {

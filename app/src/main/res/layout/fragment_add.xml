@@ -6,6 +6,11 @@
     tools:context="com.example.android.shoestore.LoginFragmint">
     <!-- LinearLayout is used because the ui is simple -->
 
+    <data>
+        <variable
+            name="myModelView"
+            type="com.example.android.shoestore.ListModelView" />
+    </data>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -55,6 +60,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
+                android:text="@={myModelView.name}"
                 android:hint="Name"
                 android:inputType="textEmailAddress"
                 android:textSize="15sp" />
@@ -70,6 +76,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
+                android:text="@={myModelView.company}"
                 android:hint="Company"
                 android:inputType="textEmailAddress"
                 android:textSize="15sp" />
@@ -85,6 +92,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
+                android:text="@={myModelView.size}"
                 android:hint="Size"
                 android:inputType="textEmailAddress"
                 android:textSize="15sp" />
@@ -101,6 +109,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
+                android:text="@={myModelView.description}"
                 android:hint="Description"
                 android:inputType="textEmailAddress"
                 android:textSize="15sp" />

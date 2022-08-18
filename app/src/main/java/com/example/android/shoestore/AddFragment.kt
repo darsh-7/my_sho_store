@@ -24,19 +24,14 @@ class AddFragment : Fragment() {
             inflater, R.layout.fragment_add, container, false
         )
 
-        val name = binding.name.text.toString()
-        var company = binding.company.text.toString()
-        var size: String = binding.size.text.toString()
-        var description: String = binding.description.text.toString()
-
+        viewModel.reseShoe()
+        binding.myModelView = viewModel
+        binding.lifecycleOwner = this
 
 
         binding.save.setOnClickListener { view: View ->
-            var sho: String =
-                "name :" + binding.name.text.toString() + "\ncompany :" + binding.company.text.toString() + "\nsize :" + binding.size.text.toString() + "\ndescription :" + binding.description.text.toString()
-            viewModel.newSho.value!! += sho
-//            model.newSho.value= listOf<String>(sho)
-            Log.i("nav to list", binding.name.text.toString() + size + description)
+            viewModel.saveNewData()
+            Log.i("nav to list", binding.name.text.toString() )
             view.findNavController()
                 .navigate(AddFragmentDirections.actionGameWonFragmentToGameFragment())
         }
@@ -45,7 +40,7 @@ class AddFragment : Fragment() {
 
 
         binding.cancel.setOnClickListener { view: View ->
-            Log.i("nav to list", binding.name.text.toString() + size + description)
+            Log.i("nav to list", binding.name.text.toString())
             view.findNavController()
                 .navigate(AddFragmentDirections.actionGameWonFragmentToGameFragment())
         }
