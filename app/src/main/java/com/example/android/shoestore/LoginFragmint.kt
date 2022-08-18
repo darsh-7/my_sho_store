@@ -16,12 +16,21 @@ import androidx.navigation.ui.NavigationUI
 import com.example.android.shoestore.databinding.FragmentLoginBinding
 
 class LoginFragmint : Fragment() {
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
-                              savedInstanceState: Bundle?): View? {
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
         val binding: FragmentLoginBinding = DataBindingUtil.inflate(
-                inflater, R.layout.fragment_login, container, false)
+            inflater, R.layout.fragment_login, container, false
+        )
         binding.login.setOnClickListener { v: View ->
-            v.findNavController().navigate(LoginFragmintDirections.actionLoginFragmentToWelcomeFragment())
+            v.findNavController()
+                .navigate(LoginFragmintDirections.actionLoginFragmentToWelcomeFragment())
+        }
+
+        binding.signup.setOnClickListener { v: View ->
+            v.findNavController()
+                .navigate(LoginFragmintDirections.actionLoginFragmentToWelcomeFragment())
         }
         return binding.root
     }
@@ -32,8 +41,8 @@ class LoginFragmint : Fragment() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        Log.i("lout clik","nave to login")
-        when(item.itemId) {
+        Log.i("lout clik", "nave to login")
+        when (item.itemId) {
             R.id.new_list ->
                 findNavController().navigate(LoginFragmintDirections.actionLoginFragmentToWelcomeFragment())
 
